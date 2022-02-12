@@ -1,20 +1,20 @@
-<header>
-  <h3>Page Header</h3>
-  <ul style="font-size: 25px; font-family: monospace">
+<head>
+  <link rel="stylesheet" href="/css/header.css" />
+</head>
+<body>
+  <header>
+    <h1>CODEIAL</h1>
     <% if (locals.user) {%>
-    <li>
+    <div>
       <a href="/users/profile"><%= user.name %></a>
-    </li>
-    <li>
       <a href="/users/sign-out">Sign Out</a>
-    </li>
+    </div>
+
     <% } else { %>
-    <li>
+    <div>
       <a href="/users/sign-in">Sign In</a>
-    </li>
-    <li>
       <a href="/users/sign-up">Sign Up</a>
-    </li>
+    </div>
     <% } %>
-  </ul>
-</header>
+  </header>
+</body>

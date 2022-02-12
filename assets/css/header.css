@@ -1,0 +1,12 @@
+header {
+  background-color: #0686fd;
+  display: flex;
+  justify-content: space-between; }
+  header h1 {
+    font-family: sans-serif; }
+  header div {
+    margin-top: 25px; }
+    header div a {
+      font-size: 25px;
+      margin: 5px;
+      color: white; }

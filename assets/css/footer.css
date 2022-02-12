@@ -1,0 +1,7 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  background-color: #0686fd;
+  width: 100%; }
+  footer h2 {
+    font-family: sans-serif; }
