@@ -1,7 +1,6 @@
 const Post = require("../models/post");
 
 module.exports.home = function (req, res) {
-  // console.log(req.cookies);
   // Populate the post of each user
   Post.find({})
     .populate("user")
