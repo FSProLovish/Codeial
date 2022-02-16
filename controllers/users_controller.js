@@ -1,23 +1,22 @@
 const User = require("../models/user");
 
 module.exports.profile = function (req, res) {
-  // if (req.cookies.user_id) {
-  //   User.findById(req.cookies.user_id, function (err, user) {
-  //     if (err) {
-  //       console.log("error...");
-  //       return;
-  //     }
-  //     if (user) {
-  return res.render("profile", {
-    title: "Profile",
+  User.findById(req.params.id, function (err, users) {
+    return res.render("profile", {
+      title: "Profile",
+      profile_user: users,
+    });
   });
-  //       } else {
-  //         return res.redirect("/users/sign-in");
-  //       }
-  //     });
-  //   } else {
-  //     return res.redirect("/users/sign-in");
-  //   }
+};
+
+module.exports.update = function (req, res) {
+  if (req.user.id == req.params.id) {
+    User.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
+      return res.redirect("back");
+    });
+  } else {
+    return res.status(401).send("Unauthorized");
+  }
 };
 
 // render the sign in Page

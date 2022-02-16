@@ -1,4 +1,5 @@
 const Post = require("../models/post");
+const User = require("../models/user");
 
 module.exports.home = function (req, res) {
   // Populate the post of each user
@@ -15,9 +16,12 @@ module.exports.home = function (req, res) {
         console.log("error in fetching the posts from database");
         return;
       }
-      res.render("home", {
-        title: "Codeial | Home",
-        posts: posts,
+      User.find({}, function (err, users) {
+        res.render("home", {
+          title: "Codeial | Home",
+          posts: posts,
+          all_users: users,
+        });
       });
     });
 };
