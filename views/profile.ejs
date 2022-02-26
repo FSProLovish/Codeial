@@ -3,11 +3,15 @@
     <link rel="stylesheet" href="/css/profile.css" />
   </head>
   <body>
-    <h1>Codeial | <%=title%></h1>
+    <img src="<%= user.avatar %>" alt="<%= user.name %>" width="100" />
 
     <% if(user.id == profile_user.id){ %>
     <!-- if user matches the current user then show form -->
-    <form action="/users/update/<%= profile_user.id %>" method="post">
+    <form
+      action="/users/update/<%= profile_user.id %>"
+      enctype="multipart/form-data"
+      method="post"
+    >
       <input
         type="text"
         name="name"
@@ -22,6 +26,7 @@
         value="<%= profile_user.email %>"
         required
       />
+      <input type="file" name="avatar" placeholder="Profile Picture" />
       <input type="submit" value="Update" />
     </form>
 
